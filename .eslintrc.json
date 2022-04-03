@@ -21,6 +21,10 @@
         "prettier"
     ],
     "rules": {
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
+      "no-console": "off",
+      "react/no-array-index-key": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "no-unused-vars": "off"
     }
 }
