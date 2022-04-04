@@ -8,6 +8,7 @@ export const RepositoryContext = createContext(initialValue);
 export function RepositoryContextProvider({ children }) {
   const [repositories, setRepositories] = useState([]);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [repositoriesView, setRepositoriesView] = useState('cards');
 
   async function addRepository(repository) {
     try {
@@ -67,6 +68,8 @@ export function RepositoryContextProvider({ children }) {
       deleteRepository,
       addRepositoryToFavorites,
       removeRepositoryFromFavorites,
+      repositoriesView,
+      setRepositoriesView,
     }),
     [
       repositories,
@@ -76,6 +79,8 @@ export function RepositoryContextProvider({ children }) {
       deleteRepository,
       addRepositoryToFavorites,
       removeRepositoryFromFavorites,
+      repositoriesView,
+      setRepositoriesView,
     ],
   );
 

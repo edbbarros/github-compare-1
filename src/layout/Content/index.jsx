@@ -6,9 +6,7 @@ import styles from './Content.module.css';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
 
 function Content() {
-  const { repositories } = useContext(RepositoryContext);
-
-  const showCards = false;
+  const { repositories, repositoriesView } = useContext(RepositoryContext);
 
   if (!repositories.length) {
     return (
@@ -20,7 +18,7 @@ function Content() {
 
   return (
     <div className={styles.contentContainer}>
-      {showCards ? (
+      {repositoriesView === 'cards' ? (
         <div className={styles.cardContainer}>
           {repositories.map(el => (
             <Card
