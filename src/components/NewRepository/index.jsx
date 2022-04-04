@@ -4,6 +4,7 @@ import ClayDropDown from '@clayui/drop-down';
 import ClayCard from '@clayui/card';
 import ClayForm, { ClayInput } from '@clayui/form';
 import ClayAlert from '@clayui/alert';
+import styles from './NewRepository.module.css';
 
 function NewRepository() {
   const [open, setOpen] = useState(false);
@@ -28,16 +29,16 @@ function NewRepository() {
       }}
     >
       <ClayCard>
-        <ClayCard.Body style={{ paddingBottom: '31px' }}>
+        <ClayCard.Body>
           <ClayCard.Description
-            style={{ fontSize: '18px', margin: '16px 0px' }}
+            className={styles.newRepositoryHeader}
             displayType="title"
           >
             New Repository
           </ClayCard.Description>
           <ClayForm.Group>
             <label htmlFor="basicInputText">
-              Repository <span style={{ color: '#B95000' }}>*</span>
+              Repository <span className={styles.required}>*</span>
             </label>
             <ClayInput id="basicInputText" type="text" />
             <ClayAlert
@@ -48,20 +49,8 @@ function NewRepository() {
           </ClayForm.Group>
         </ClayCard.Body>
       </ClayCard>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'right',
-          padding: '16px',
-          marginRight: '8px',
-        }}
-      >
-        <ClayButton
-          style={{ marginRight: '16px' }}
-          displayType="secondary"
-          onClick={() => setOpen(false)}
-        >
+      <div className={styles.newRepositoryHeaderActions}>
+        <ClayButton displayType="secondary" onClick={() => setOpen(false)}>
           Cancel
         </ClayButton>
         <ClayButton>Add</ClayButton>

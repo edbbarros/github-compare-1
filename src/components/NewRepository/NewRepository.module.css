@@ -1,0 +1,19 @@
+.newRepositoryHeader {
+  font-size: 18px;
+  margin: 16px 0px;
+}
+
+.required {
+  color: #B95000;
+}
+
+.newRepositoryHeaderActions {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 16px;
+}
+
+.newRepositoryHeaderActions button {
+  margin-right: 16px;
+}
