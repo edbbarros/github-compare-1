@@ -1,0 +1,23 @@
+.contentContainer {
+  background-color: #E5E5E5;
+  min-height: calc(100vh - 4rem);
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.emptyStateContainer {
+  background-color: #E5E5E5;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
