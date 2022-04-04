@@ -2,6 +2,7 @@ import ClayButton from '@clayui/button';
 import ClayCard from '@clayui/card';
 import ClayLabel from '@clayui/label';
 import ClayIcon from '@clayui/icon';
+import DeletionModal from '../../DeletionModal';
 import styles from './List.module.css';
 
 function List(props) {
@@ -40,15 +41,7 @@ function List(props) {
               <ClayIcon symbol="star-o" />
             )}
           </ClayButton>
-          <ClayButton
-            displayType="secondary"
-            borderless
-            onClick={() => {
-              console.log('open deletion modal');
-            }}
-          >
-            <ClayIcon symbol="trash" />
-          </ClayButton>
+          <DeletionModal title={title} id={id} />
         </div>
       </div>
 
