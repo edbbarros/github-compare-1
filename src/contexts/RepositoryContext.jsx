@@ -1,5 +1,6 @@
 import { createContext, useMemo, useState } from 'react';
 import api from '../services/api';
+import { MOCK_DATA } from '../MOCK_DATA';
 
 const initialValue = {};
 
@@ -9,6 +10,7 @@ export function RepositoryContextProvider({ children }) {
   const [repositories, setRepositories] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [searchString, setSearchString] = useState('');
+  const [favoritesResults, setFavoritesResults] = useState([]);
   const [filterOperationType, setFilterOperationType] = useState('');
   const [errorMsg, setErrorMsg] = useState(null);
   const [repositoriesView, setRepositoriesView] = useState('cards');
@@ -62,6 +64,12 @@ export function RepositoryContextProvider({ children }) {
     setRepositories([...newRepositoriesArray]);
   }
 
+  function filterFavoriteRepositories() {
+    const newRepositoriesArray = repositories;
+    const favorites = newRepositoriesArray.filter(el => el.isFavorite === true);
+    setFavoritesResults([...favorites]);
+  }
+
   function sortRepositories(property) {
     const newRepositoriesArray = repositories;
     newRepositoriesArray.sort((a, b) => {
@@ -94,6 +102,9 @@ export function RepositoryContextProvider({ children }) {
       deleteRepository,
       addRepositoryToFavorites,
       removeRepositoryFromFavorites,
+      filterFavoriteRepositories,
+      favoritesResults,
+      setFavoritesResults,
       repositoriesView,
       setRepositoriesView,
       sortRepositories,
@@ -113,6 +124,9 @@ export function RepositoryContextProvider({ children }) {
       deleteRepository,
       addRepositoryToFavorites,
       removeRepositoryFromFavorites,
+      filterFavoriteRepositories,
+      favoritesResults,
+      setFavoritesResults,
       repositoriesView,
       setRepositoriesView,
       sortRepositories,

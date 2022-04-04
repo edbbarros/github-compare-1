@@ -6,10 +6,25 @@ import styles from './Content.module.css';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
 
 function Content() {
-  const { repositories, repositoriesView, searchResults, filterOperationType } =
-    useContext(RepositoryContext);
+  const {
+    repositories,
+    repositoriesView,
+    searchResults,
+    filterOperationType,
+    favoritesResults,
+  } = useContext(RepositoryContext);
 
-  const data = filterOperationType === 'search' ? searchResults : repositories;
+  let data = [];
+  switch (filterOperationType) {
+    case 'search':
+      data = searchResults;
+      break;
+    case 'favorites':
+      data = favoritesResults;
+      break;
+    default:
+      data = repositories;
+  }
 
   if (!data.length) {
     return (

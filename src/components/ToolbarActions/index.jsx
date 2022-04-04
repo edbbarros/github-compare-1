@@ -7,8 +7,13 @@ import NewRepository from '../NewRepository';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
 
 function ToolbarActions() {
-  const { repositoriesView, setRepositoriesView } =
-    useContext(RepositoryContext);
+  const {
+    repositoriesView,
+    setRepositoriesView,
+    filterFavoriteRepositories,
+    filterOperationType,
+    setFilterOperationType,
+  } = useContext(RepositoryContext);
 
   const viewTypes = [
     {
@@ -47,9 +52,20 @@ function ToolbarActions() {
         <ClayButton
           className="nav-link nav-link-monospaced"
           displayType="unstyled"
-          onClick={() => {}}
+          onClick={() => {
+            if (filterOperationType === 'favorites') {
+              setFilterOperationType('');
+            } else {
+              setFilterOperationType('favorites');
+              filterFavoriteRepositories();
+            }
+          }}
         >
-          <ClayIcon symbol="star-o" />
+          {filterOperationType === 'favorites' ? (
+            <ClayIcon symbol="star" />
+          ) : (
+            <ClayIcon symbol="star-o" />
+          )}
         </ClayButton>
       </ClayManagementToolbar.Item>
 
