@@ -1,0 +1,48 @@
+.card {
+  margin: 30px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 1px solid #E7E7ED;
+}
+
+.repoInfo {
+  font-size: 14px;
+  font-weight: 600;
+  color: #272833;
+}
+
+.repoInfo img {
+  margin-right: 7px;
+  width: 40px;
+  height: 40px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardBody p {
+  font-weight: 600;
+  margin: 0;
+  color: #272833;
+}
+
+.cardBody span {
+  font-weight: 400;
+}
+
+.label {
+  margin-top: 8px;
+}

@@ -1,0 +1,47 @@
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.repoInfo {
+  font-size: 14px;
+  font-weight: 600;
+  color: #272833;
+}
+
+.repoInfo img {
+  margin-right: 7px;
+  width: 40px;
+  height: 40px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listBody {
+  display: flex;
+  flex-direction: row;
+  margin-left: 52px;
+}
+
+.listBody p {
+  font-weight: 500;
+  margin: 0;
+  color: #6B6C7E;
+  margin-right: 10px;
+}
+
+.listBody span {
+  font-weight: 400;
+}
+
+.label {
+  margin-left: 52px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
