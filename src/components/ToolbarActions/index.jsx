@@ -1,20 +1,31 @@
+import { useContext } from 'react';
 import ClayManagementToolbar from '@clayui/management-toolbar';
 import ClayIcon from '@clayui/icon';
 import ClayButton from '@clayui/button';
 import { ClayDropDownWithItems } from '@clayui/drop-down';
 import NewRepository from '../NewRepository';
+import { RepositoryContext } from '../../contexts/RepositoryContext';
 
 function ToolbarActions() {
+  const {
+    repositoriesView,
+    setRepositoriesView,
+    filterFavoriteRepositories,
+    filterOperationType,
+    setFilterOperationType,
+  } = useContext(RepositoryContext);
+
   const viewTypes = [
     {
-      active: true,
+      active: repositoriesView === 'cards',
       label: 'Cards',
-      onClick: () => console.log('Show view card'),
+      onClick: () => setRepositoriesView('cards'),
       symbolLeft: 'cards2',
     },
     {
+      active: repositoriesView === 'list',
       label: 'List',
-      onClick: () => console.log('Show view list'),
+      onClick: () => setRepositoriesView('list'),
       symbolLeft: 'cards-full',
     },
   ];
@@ -41,9 +52,20 @@ function ToolbarActions() {
         <ClayButton
           className="nav-link nav-link-monospaced"
           displayType="unstyled"
-          onClick={() => {}}
+          onClick={() => {
+            if (filterOperationType === 'favorites') {
+              setFilterOperationType('');
+            } else {
+              setFilterOperationType('favorites');
+              filterFavoriteRepositories();
+            }
+          }}
         >
-          <ClayIcon symbol="star-o" />
+          {filterOperationType === 'favorites' ? (
+            <ClayIcon symbol="star" />
+          ) : (
+            <ClayIcon symbol="star-o" />
+          )}
         </ClayButton>
       </ClayManagementToolbar.Item>
 

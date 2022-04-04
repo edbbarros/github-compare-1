@@ -8,7 +8,8 @@ import { RepositoryContext } from '../../contexts/RepositoryContext';
 import styles from './NewRepository.module.css';
 
 function NewRepository() {
-  const { addRepository, errorMsg } = useContext(RepositoryContext);
+  const { addRepository, errorMsg, setErrorMsg } =
+    useContext(RepositoryContext);
 
   const [repository, setRepository] = useState('');
   const [open, setOpen] = useState(false);
@@ -47,7 +48,10 @@ function NewRepository() {
             <ClayInput
               id="basicInputText"
               type="text"
-              onChange={e => setRepository(e.target.value)}
+              onChange={e => {
+                setRepository(e.target.value);
+                setErrorMsg(null);
+              }}
             />
             {errorMsg && (
               <ClayAlert
@@ -67,6 +71,7 @@ function NewRepository() {
           onClick={() => {
             addRepository(repository);
           }}
+          disabled={errorMsg}
         >
           Add
         </ClayButton>
