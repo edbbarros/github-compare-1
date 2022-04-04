@@ -44,6 +44,20 @@ export function RepositoryContextProvider({ children }) {
     setRepositories([...newRepositoriesArray]);
   }
 
+  function addRepositoryToFavorites(id) {
+    const repositoryToFav = repositories.findIndex(el => el.id === id);
+    const newRepositoriesArray = repositories;
+    newRepositoriesArray[repositoryToFav].isFavorite = true;
+    setRepositories([...newRepositoriesArray]);
+  }
+
+  function removeRepositoryFromFavorites(id) {
+    const repositoryToFav = repositories.findIndex(el => el.id === id);
+    const newRepositoriesArray = repositories;
+    newRepositoriesArray[repositoryToFav].isFavorite = false;
+    setRepositories([...newRepositoriesArray]);
+  }
+
   const value = useMemo(
     () => ({
       repositories,
@@ -51,8 +65,18 @@ export function RepositoryContextProvider({ children }) {
       addRepository,
       errorMsg,
       deleteRepository,
+      addRepositoryToFavorites,
+      removeRepositoryFromFavorites,
     }),
-    [repositories, setRepositories, addRepository, errorMsg, deleteRepository],
+    [
+      repositories,
+      setRepositories,
+      addRepository,
+      errorMsg,
+      deleteRepository,
+      addRepositoryToFavorites,
+      removeRepositoryFromFavorites,
+    ],
   );
 
   return (
