@@ -6,6 +6,7 @@ import ClayIcon from '@clayui/icon';
 import DeletionModal from '../../DeletionModal';
 import styles from './List.module.css';
 import { RepositoryContext } from '../../../contexts/RepositoryContext';
+import { formatTime } from '../../../utils';
 
 function List(props) {
   const {
@@ -65,10 +66,10 @@ function List(props) {
           Open Issues <span>{openIssues}</span>
         </p>
         <p>
-          Age <span>{age}</span>
+          Age <span>{formatTime(age)}</span>
         </p>
         <p>
-          Last commit <span>{lastCommit}</span>
+          Last commit <span>{formatTime(lastCommit)}</span>
         </p>
         <p>
           License <span>{license?.name || 'N/A'}</span>
