@@ -1,9 +1,11 @@
+import { useContext } from 'react';
 import ClayButton from '@clayui/button';
 import ClayCard from '@clayui/card';
 import ClayLabel from '@clayui/label';
 import ClayIcon from '@clayui/icon';
 import DeletionModal from '../../DeletionModal';
 import styles from './List.module.css';
+import { RepositoryContext } from '../../../contexts/RepositoryContext';
 
 function List(props) {
   const {
@@ -20,6 +22,9 @@ function List(props) {
     isFavorite,
   } = props;
 
+  const { addRepositoryToFavorites, removeRepositoryFromFavorites } =
+    useContext(RepositoryContext);
+
   return (
     <ClayCard key={id}>
       <div className={styles.listHeader}>
@@ -32,7 +37,11 @@ function List(props) {
             displayType="secondary"
             borderless
             onClick={() => {
-              console.log('add to favorites');
+              if (isFavorite) {
+                removeRepositoryFromFavorites(id);
+              } else {
+                addRepositoryToFavorites(id);
+              }
             }}
           >
             {isFavorite ? (
