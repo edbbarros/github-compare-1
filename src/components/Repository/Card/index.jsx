@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import ClayButton from '@clayui/button';
 import ClayCard from '@clayui/card';
 import ClayLabel from '@clayui/label';
@@ -21,8 +20,6 @@ function Card(props) {
     isFavorite,
   } = props;
 
-  const [visible, setVisible] = useState(false);
-
   return (
     <ClayCard key={id} className={styles.card}>
       <div className={styles.cardHeader}>
@@ -44,16 +41,7 @@ function Card(props) {
               <ClayIcon symbol="star-o" />
             )}
           </ClayButton>
-          <ClayButton
-            displayType="secondary"
-            borderless
-            onClick={() => {
-              setVisible(true);
-            }}
-          >
-            <ClayIcon symbol="trash" />
-          </ClayButton>
-          <DeletionModal visible={visible} setVisible={setVisible} />
+          <DeletionModal title={title} id={id} />
         </div>
       </div>
 

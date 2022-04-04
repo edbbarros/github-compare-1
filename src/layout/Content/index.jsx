@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import EmptyState from '../../components/EmptyState';
 import Card from '../../components/Repository/Card';
 import List from '../../components/Repository/List';
@@ -24,6 +24,7 @@ function Content() {
         <div className={styles.cardContainer}>
           {repositories.map(el => (
             <Card
+              key={el.id}
               id={el.id}
               title={el.title}
               avatar={el.avatar}
@@ -42,6 +43,7 @@ function Content() {
         <div className={styles.listContainer}>
           {repositories.map(el => (
             <List
+              key={el.id}
               id={el.id}
               title={el.title}
               avatar={el.avatar}

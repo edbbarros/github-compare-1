@@ -35,14 +35,24 @@ export function RepositoryContextProvider({ children }) {
     }
   }
 
+  function deleteRepository(id) {
+    const repositoryToDelete = repositories.indexOf(
+      repositories.find(el => el.id === id),
+    );
+    const newRepositoriesArray = repositories;
+    newRepositoriesArray.splice(repositoryToDelete, 1);
+    setRepositories([...newRepositoriesArray]);
+  }
+
   const value = useMemo(
     () => ({
       repositories,
       setRepositories,
       addRepository,
       errorMsg,
+      deleteRepository,
     }),
-    [repositories, setRepositories, addRepository, errorMsg],
+    [repositories, setRepositories, addRepository, errorMsg, deleteRepository],
   );
 
   return (
