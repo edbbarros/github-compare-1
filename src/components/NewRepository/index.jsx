@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import ClayButton, { ClayButtonWithIcon } from '@clayui/button';
 import ClayDropDown from '@clayui/drop-down';
 import ClayCard from '@clayui/card';
 import ClayForm, { ClayInput } from '@clayui/form';
 import ClayAlert from '@clayui/alert';
+import { RepositoryContext } from '../../contexts/RepositoryContext';
 import styles from './NewRepository.module.css';
 
 function NewRepository() {
+  const { addRepository, errorMsg } = useContext(RepositoryContext);
+
+  const [repository, setRepository] = useState('');
   const [open, setOpen] = useState(false);
 
   return (
@@ -40,12 +44,18 @@ function NewRepository() {
             <label htmlFor="basicInputText">
               Repository <span className={styles.required}>*</span>
             </label>
-            <ClayInput id="basicInputText" type="text" />
-            <ClayAlert
-              displayType="danger"
-              title="This is an API-feedback-error"
-              variant="feedback"
+            <ClayInput
+              id="basicInputText"
+              type="text"
+              onChange={e => setRepository(e.target.value)}
             />
+            {errorMsg && (
+              <ClayAlert
+                displayType="danger"
+                title={errorMsg}
+                variant="feedback"
+              />
+            )}
           </ClayForm.Group>
         </ClayCard.Body>
       </ClayCard>
@@ -53,7 +63,13 @@ function NewRepository() {
         <ClayButton displayType="secondary" onClick={() => setOpen(false)}>
           Cancel
         </ClayButton>
-        <ClayButton>Add</ClayButton>
+        <ClayButton
+          onClick={() => {
+            addRepository(repository);
+          }}
+        >
+          Add
+        </ClayButton>
       </div>
     </ClayDropDown>
   );
