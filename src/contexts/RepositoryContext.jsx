@@ -7,6 +7,9 @@ export const RepositoryContext = createContext(initialValue);
 
 export function RepositoryContextProvider({ children }) {
   const [repositories, setRepositories] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchString, setSearchString] = useState('');
+  const [filterOperationType, setFilterOperationType] = useState('');
   const [errorMsg, setErrorMsg] = useState(null);
   const [repositoriesView, setRepositoriesView] = useState('cards');
 
@@ -75,6 +78,13 @@ export function RepositoryContextProvider({ children }) {
     setRepositories([...newRepositoriesArray]);
   }
 
+  function filterRepository(searchQuery) {
+    const newRepositoriesArray = repositories;
+    const query = new RegExp(searchQuery, 'i');
+    const search = newRepositoriesArray.filter(el => el.title.match(query));
+    setSearchResults([...search]);
+  }
+
   const value = useMemo(
     () => ({
       repositories,
@@ -87,6 +97,13 @@ export function RepositoryContextProvider({ children }) {
       repositoriesView,
       setRepositoriesView,
       sortRepositories,
+      filterRepository,
+      searchResults,
+      setSearchResults,
+      filterOperationType,
+      setFilterOperationType,
+      searchString,
+      setSearchString,
     }),
     [
       repositories,
@@ -99,6 +116,13 @@ export function RepositoryContextProvider({ children }) {
       repositoriesView,
       setRepositoriesView,
       sortRepositories,
+      filterRepository,
+      searchResults,
+      setSearchResults,
+      filterOperationType,
+      setFilterOperationType,
+      searchString,
+      setSearchString,
     ],
   );
 

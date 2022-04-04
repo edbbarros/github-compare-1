@@ -1,8 +1,17 @@
+import { useContext } from 'react';
 import ClayManagementToolbar from '@clayui/management-toolbar';
 import { ClayInput } from '@clayui/form';
 import { ClayButtonWithIcon } from '@clayui/button';
+import { RepositoryContext } from '../../contexts/RepositoryContext';
 
 function Search() {
+  const {
+    filterRepository,
+    setFilterOperationType,
+    searchString,
+    setSearchString,
+  } = useContext(RepositoryContext);
+
   const searchMobile = false;
   function setSearchMobile(value) {
     console.log(value);
@@ -17,6 +26,12 @@ function Search() {
             className="form-control input-group-inset input-group-inset-after"
             placeholder="Search"
             type="text"
+            value={searchString}
+            onChange={e => {
+              setFilterOperationType('search');
+              filterRepository(e.target.value);
+              setSearchString(e.target.value);
+            }}
           />
           <ClayInput.GroupInsetItem after tag="span">
             <ClayButtonWithIcon

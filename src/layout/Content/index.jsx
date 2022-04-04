@@ -6,12 +6,19 @@ import styles from './Content.module.css';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
 
 function Content() {
-  const { repositories, repositoriesView } = useContext(RepositoryContext);
+  const { repositories, repositoriesView, searchResults, filterOperationType } =
+    useContext(RepositoryContext);
 
-  if (!repositories.length) {
+  const data = filterOperationType === 'search' ? searchResults : repositories;
+
+  if (!data.length) {
     return (
       <div className={styles.emptyStateContainer}>
-        <EmptyState />
+        {filterOperationType === 'search' ? (
+          <EmptyState isSearch />
+        ) : (
+          <EmptyState />
+        )}
       </div>
     );
   }
@@ -20,7 +27,7 @@ function Content() {
     <div className={styles.contentContainer}>
       {repositoriesView === 'cards' ? (
         <div className={styles.cardContainer}>
-          {repositories.map(el => (
+          {data.map(el => (
             <Card
               key={el.id}
               id={el.id}
@@ -39,7 +46,7 @@ function Content() {
         </div>
       ) : (
         <div className={styles.listContainer}>
-          {repositories.map(el => (
+          {data.map(el => (
             <List
               key={el.id}
               id={el.id}
