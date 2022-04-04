@@ -59,6 +59,22 @@ export function RepositoryContextProvider({ children }) {
     setRepositories([...newRepositoriesArray]);
   }
 
+  function sortRepositories(property) {
+    const newRepositoriesArray = repositories;
+    newRepositoriesArray.sort((a, b) => {
+      const keyA = a[property];
+      const keyB = b[property];
+      if (keyA < keyB) {
+        return 1;
+      }
+      if (keyA > keyB) {
+        return -1;
+      }
+      return 0;
+    });
+    setRepositories([...newRepositoriesArray]);
+  }
+
   const value = useMemo(
     () => ({
       repositories,
@@ -70,6 +86,7 @@ export function RepositoryContextProvider({ children }) {
       removeRepositoryFromFavorites,
       repositoriesView,
       setRepositoriesView,
+      sortRepositories,
     }),
     [
       repositories,
@@ -81,6 +98,7 @@ export function RepositoryContextProvider({ children }) {
       removeRepositoryFromFavorites,
       repositoriesView,
       setRepositoriesView,
+      sortRepositories,
     ],
   );
 

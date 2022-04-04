@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import ClayIcon from '@clayui/icon';
 import ClayButton from '@clayui/button';
 import ClayDropDown from '@clayui/drop-down';
+import { RepositoryContext } from '../../contexts/RepositoryContext';
 
 function Filter() {
+  const { sortRepositories } = useContext(RepositoryContext);
+
   const [active, setActive] = useState(false);
 
   return (
@@ -36,13 +39,16 @@ function Filter() {
       <ClayDropDown.ItemList>
         <ClayDropDown.Group header="Order by">
           {[
-            { label: 'Stars' },
-            { label: 'Forks' },
-            { label: 'Open Issues' },
-            { label: 'Age' },
-            { label: 'Last commit' },
+            { label: 'Stars', value: 'stars' },
+            { label: 'Forks', value: 'forks' },
+            { label: 'Open Issues', value: 'openIssues' },
+            { label: 'Age', value: 'age' },
+            { label: 'Last commit', value: 'lastCommit' },
           ].map((item, i) => (
-            <ClayDropDown.Item onClick={() => console.log('sort')} key={i}>
+            <ClayDropDown.Item
+              onClick={() => sortRepositories(item.value)}
+              key={i}
+            >
               {item.label}
             </ClayDropDown.Item>
           ))}
