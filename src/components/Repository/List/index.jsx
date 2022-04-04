@@ -4,18 +4,27 @@ import ClayLabel from '@clayui/label';
 import ClayIcon from '@clayui/icon';
 import styles from './List.module.css';
 
-function List() {
-  const isFavorite = false;
+function List(props) {
+  const {
+    id,
+    title,
+    avatar,
+    stars,
+    forks,
+    openIssues,
+    age,
+    lastCommit,
+    license,
+    language,
+    isFavorite,
+  } = props;
 
   return (
-    <ClayCard>
+    <ClayCard key={id}>
       <div className={styles.listHeader}>
         <div className={styles.repoInfo}>
-          <img
-            src="https://avatars.githubusercontent.com/u/131436?s=200&v=4"
-            alt="Avatar"
-          />
-          phmachado/github-compare
+          <img src={avatar} alt="Avatar" />
+          {title}
         </div>
         <div className={styles.options}>
           <ClayButton
@@ -45,26 +54,26 @@ function List() {
 
       <div className={styles.listBody}>
         <p>
-          Stars <span>150</span>
+          Stars <span>{stars}</span>
         </p>
         <p>
-          Forks <span>442</span>
+          Forks <span>{forks}</span>
         </p>
         <p>
-          Open Issues <span>0</span>
+          Open Issues <span>{openIssues}</span>
         </p>
         <p>
-          Age <span>11 years ago</span>
+          Age <span>{age}</span>
         </p>
         <p>
-          Last commit <span>7 hours ago</span>
+          Last commit <span>{lastCommit}</span>
         </p>
         <p>
-          License <span>N/A</span>
+          License <span>{license?.name || 'N/A'}</span>
         </p>
       </div>
-      <ClayLabel className={styles.label} displayType="warning" large>
-        JavaScript
+      <ClayLabel key={id} className={styles.label} displayType="warning" large>
+        {language}
       </ClayLabel>
     </ClayCard>
   );
