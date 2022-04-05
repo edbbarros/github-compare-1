@@ -55,36 +55,29 @@ function Card(props) {
         </div>
       </div>
 
-      <ClayCard.Body className={styles.cardBody}>
-        <ClayCard.Description tag="div">
-          <p>
-            Stars <span>{stars}</span>
-          </p>
-          <p>
-            Forks <span>{forks}</span>
-          </p>
-          <p>
-            Open Issues <span>{openIssues}</span>
-          </p>
-          <p>
-            Age <span>{formatTime(age)}</span>
-          </p>
-          <p>
-            Last commit <span>{formatTime(lastCommit)}</span>
-          </p>
-          <p>
-            License <span>{license?.name || 'N/A'}</span>
-          </p>
-          <ClayLabel
-            key={id}
-            className={styles.label}
-            displayType="warning"
-            large
-          >
-            {language}
-          </ClayLabel>
-        </ClayCard.Description>
-      </ClayCard.Body>
+      <div className={styles.cardBody}>
+        <p>
+          Stars <span>{stars}</span>
+        </p>
+        <p>
+          Forks <span>{forks}</span>
+        </p>
+        <p>
+          Open Issues <span>{openIssues}</span>
+        </p>
+        <p>
+          Age <span>{formatTime(age)}</span>
+        </p>
+        <p>
+          Last commit <span>{formatTime(lastCommit)}</span>
+        </p>
+        <p>
+          License <span>{license?.name || 'N/A'}</span>
+        </p>
+      </div>
+      <ClayLabel key={id} className={styles.label} displayType="warning" large>
+        {language}
+      </ClayLabel>
     </ClayCard>
   );
 }

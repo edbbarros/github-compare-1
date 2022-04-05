@@ -27,7 +27,7 @@ function List(props) {
     useContext(RepositoryContext);
 
   return (
-    <ClayCard key={id}>
+    <ClayCard key={id} className={styles.listContainer}>
       <div className={styles.listHeader}>
         <div className={styles.repoInfo}>
           <img src={avatar} alt="Avatar" />

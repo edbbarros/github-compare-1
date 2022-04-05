@@ -1,3 +1,7 @@
+.listContainer {
+  min-width: 542px;
+}
+
 .listHeader {
   display: flex;
   align-items: center;
@@ -44,4 +48,5 @@
   margin-left: 52px;
   margin-top: 8px;
   margin-bottom: 16px;
+  text-transform: uppercase;
 }
