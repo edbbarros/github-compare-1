@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react';
 import ClayButton, { ClayButtonWithIcon } from '@clayui/button';
 import ClayDropDown from '@clayui/drop-down';
-import ClayCard from '@clayui/card';
 import ClayForm, { ClayInput } from '@clayui/form';
 import ClayAlert from '@clayui/alert';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
@@ -16,6 +15,7 @@ function NewRepository() {
 
   return (
     <ClayDropDown
+      menuWidth="sm"
       trigger={
         <ClayButtonWithIcon
           className="nav-btn nav-btn-monospaced"
@@ -24,45 +24,30 @@ function NewRepository() {
       }
       active={open}
       onActiveChange={setOpen}
-      menuWidth="sm"
-      menuElementAttrs={{
-        className: 'my-custom-dropdown-menu',
-        containerProps: {
-          className: 'dropdown-menu-react-portal-div',
-          id: 'dropdownMenuReactPortalDiv',
-        },
-      }}
     >
-      <ClayCard>
-        <ClayCard.Body>
-          <ClayCard.Description
-            className={styles.newRepositoryHeader}
-            displayType="title"
-          >
-            New Repository
-          </ClayCard.Description>
-          <ClayForm.Group>
-            <label htmlFor="basicInputText">
-              Repository <span className={styles.required}>*</span>
-            </label>
-            <ClayInput
-              id="basicInputText"
-              type="text"
-              onChange={e => {
-                setRepository(e.target.value);
-                setErrorMsg(null);
-              }}
+      <div className={styles.newRepositoryHeader}>
+        New repository
+        <ClayForm.Group className={styles.newRepositoryForm}>
+          <label htmlFor="basicInputText">
+            Repository <span className={styles.required}>*</span>
+          </label>
+          <ClayInput
+            id="basicInputText"
+            type="text"
+            onChange={e => {
+              setRepository(e.target.value);
+              setErrorMsg(null);
+            }}
+          />
+          {errorMsg && (
+            <ClayAlert
+              displayType="danger"
+              title={errorMsg}
+              variant="feedback"
             />
-            {errorMsg && (
-              <ClayAlert
-                displayType="danger"
-                title={errorMsg}
-                variant="feedback"
-              />
-            )}
-          </ClayForm.Group>
-        </ClayCard.Body>
-      </ClayCard>
+          )}
+        </ClayForm.Group>
+      </div>
       <div className={styles.newRepositoryHeaderActions}>
         <ClayButton displayType="secondary" onClick={() => setOpen(false)}>
           Cancel
