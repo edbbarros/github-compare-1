@@ -6,12 +6,16 @@
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
+  max-width: 1144px;
 }
 
 .listContainer {
   display: flex;
   flex-direction: column;
   padding: 30px;
+  margin: auto;
+  max-width: 1144px;
 }
 
 .emptyStateContainer {
