@@ -1,6 +1,5 @@
 import { createContext, useMemo, useState } from 'react';
 import api from '../services/api';
-import { MOCK_DATA } from '../MOCK_DATA';
 
 const initialValue = {};
 
