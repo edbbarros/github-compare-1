@@ -1,8 +1,9 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import ClayManagementToolbar from '@clayui/management-toolbar';
 import { ClayInput } from '@clayui/form';
-import { ClayButtonWithIcon } from '@clayui/button';
+import ClayIcon from '@clayui/icon';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
+import styles from './Search.module.css';
 
 function Search() {
   const {
@@ -12,13 +13,8 @@ function Search() {
     setSearchString,
   } = useContext(RepositoryContext);
 
-  const searchMobile = false;
-  function setSearchMobile(value) {
-    console.log(value);
-  }
-
   return (
-    <ClayManagementToolbar.Search showMobile={searchMobile}>
+    <ClayManagementToolbar.Search>
       <ClayInput.Group>
         <ClayInput.GroupItem>
           <ClayInput
@@ -34,17 +30,7 @@ function Search() {
             }}
           />
           <ClayInput.GroupInsetItem after tag="span">
-            <ClayButtonWithIcon
-              className="navbar-breakpoint-d-none"
-              displayType="unstyled"
-              onClick={() => setSearchMobile(false)}
-              symbol="times"
-            />
-            <ClayButtonWithIcon
-              displayType="unstyled"
-              symbol="search"
-              type="submit"
-            />
+            <ClayIcon className={styles.searchIcon} symbol="search" />
           </ClayInput.GroupInsetItem>
         </ClayInput.GroupItem>
       </ClayInput.Group>
