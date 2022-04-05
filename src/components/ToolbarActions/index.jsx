@@ -5,6 +5,7 @@ import ClayButton from '@clayui/button';
 import { ClayDropDownWithItems } from '@clayui/drop-down';
 import NewRepository from '../NewRepository';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
+import styles from './ToolbarActions.module.css';
 
 function ToolbarActions() {
   const {
@@ -32,23 +33,9 @@ function ToolbarActions() {
 
   const viewTypeActive = viewTypes.find(type => type.active);
 
-  function setSearchMobile(value) {
-    console.log(value);
-  }
-
   return (
     <ClayManagementToolbar.ItemList>
-      <ClayManagementToolbar.Item className="navbar-breakpoint-d-none">
-        <ClayButton
-          className="nav-link nav-link-monospaced"
-          displayType="unstyled"
-          onClick={() => setSearchMobile(true)}
-        >
-          <ClayIcon symbol="search" />
-        </ClayButton>
-      </ClayManagementToolbar.Item>
-
-      <ClayManagementToolbar.Item>
+      <ClayManagementToolbar.Item className={styles.favorites}>
         <ClayButton
           className="nav-link nav-link-monospaced"
           displayType="unstyled"
@@ -79,7 +66,7 @@ function ToolbarActions() {
         </ClayButton>
       </ClayManagementToolbar.Item>
 
-      <ClayManagementToolbar.Item>
+      <ClayManagementToolbar.Item className={styles.displayType}>
         <ClayDropDownWithItems
           items={viewTypes}
           trigger={
