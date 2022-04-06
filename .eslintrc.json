@@ -25,7 +25,6 @@
       "no-console": "off",
       "react/no-array-index-key": "off",
       "jsx-a11y/label-has-associated-control": "off",
-      "no-unused-vars": "off",
       "react/prop-types": "off",
       "react/jsx-no-useless-fragment": "off",
       "import/prefer-default-export": "off",
