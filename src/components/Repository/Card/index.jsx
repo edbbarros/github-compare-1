@@ -29,11 +29,11 @@ function Card(props) {
   return (
     <ClayCard key={id} className={styles.card}>
       <div className={styles.cardHeader}>
-        <div className={styles.repoInfo}>
+        <div className={styles.repositoryInfo}>
           <img src={avatar} alt="Avatar" />
           {title}
         </div>
-        <div className={styles.actions}>
+        <div className={styles.repositoryActions}>
           <ClayButton
             displayType="secondary"
             borderless
@@ -74,10 +74,15 @@ function Card(props) {
         <p>
           License <span>{license?.name || 'N/A'}</span>
         </p>
+        <ClayLabel
+          key={id}
+          className={styles.label}
+          displayType="warning"
+          large
+        >
+          {language}
+        </ClayLabel>
       </div>
-      <ClayLabel key={id} className={styles.label} displayType="warning" large>
-        {language}
-      </ClayLabel>
     </ClayCard>
   );
 }
