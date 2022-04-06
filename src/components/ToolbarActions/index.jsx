@@ -17,6 +17,7 @@ function ToolbarActions() {
     filterFavoriteRepositories,
     filterOperationType,
     setFilterOperationType,
+    setSearchMobile,
   } = useContext(RepositoryContext);
 
   const viewTypes = [
@@ -38,6 +39,19 @@ function ToolbarActions() {
 
   return (
     <ClayManagementToolbar.ItemList>
+      {/* toggle search button (will appear depending on the screen size) */}
+      <ClayManagementToolbar.Item className="navbar-breakpoint-d-none">
+        <ClayButton
+          className="nav-link nav-link-monospaced"
+          displayType="unstyled"
+          onClick={() => {
+            setSearchMobile(true);
+          }}
+        >
+          <ClayIcon color={isDarkTheme ? '#FFF' : null} symbol="search" />
+        </ClayButton>
+      </ClayManagementToolbar.Item>
+
       {/* show favorites button */}
       <ClayManagementToolbar.Item className={styles.favorites}>
         <ClayButton

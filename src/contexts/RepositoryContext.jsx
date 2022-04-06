@@ -13,6 +13,7 @@ export function RepositoryContextProvider({ children }) {
   const [filterOperationType, setFilterOperationType] = useState('');
   const [errorMsg, setErrorMsg] = useState(null);
   const [repositoriesView, setRepositoriesView] = useState('cards');
+  const [searchMobile, setSearchMobile] = useState(false);
 
   async function addRepository(repository) {
     try {
@@ -115,6 +116,8 @@ export function RepositoryContextProvider({ children }) {
       setFilterOperationType,
       searchString,
       setSearchString,
+      searchMobile,
+      setSearchMobile,
     }),
     [
       repositories,
@@ -138,6 +141,8 @@ export function RepositoryContextProvider({ children }) {
       setFilterOperationType,
       searchString,
       setSearchString,
+      searchMobile,
+      setSearchMobile,
     ],
   );
 

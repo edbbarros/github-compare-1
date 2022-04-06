@@ -32,6 +32,9 @@ function Filter() {
               symbol="caret-bottom"
             />
           </span>
+          <span className="navbar-breakpoint-d-none">
+            <ClayIcon symbol="filter" />
+          </span>
         </ClayButton>
       }
       active={active}
