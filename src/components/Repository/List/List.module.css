@@ -56,14 +56,14 @@
 
 /* Dark Theme */
 .listDark {
-  background-color: #393a4a;
-  color: #fff;
+  background-color: #393A4A;
+  color: #FFF;
 }
 
 .listDark button, .listDark div, .listDark p {
-  color: #fff;
+  color: #FFF;
 }
 
 .listDark button:hover {
-  color: #ddd;
+  color: #DDD;
 }

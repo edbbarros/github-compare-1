@@ -64,14 +64,14 @@
 /* Dark Theme */
 .cardDark {
   flex: 0 1 321px;
-  background-color: #393a4a;
-  color: #fff;
+  background-color: #393A4A;
+  color: #FFF;
 }
 
 .cardDark button {
-  color: #fff;
+  color: #FFF;
 }
 
 .cardDark button:hover {
-  color: #ddd;
+  color: #DDD;
 }

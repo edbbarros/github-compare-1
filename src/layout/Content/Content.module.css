@@ -43,15 +43,16 @@
 }
 
 .emptyStateContainerDark div {
-  color: #fff;
+  color: #FFF;
 }
+
 .emptyStateContainerDark button {
-  color: #fff;
-  background-color: #6b6c7e;
+  color: #FFF;
+  background-color: #6B6C7E;
   border: none;
 }
 
 .emptyStateContainerDark button:hover {
-  color: #fff;
+  color: #FFF;
   background-color: #495057;
 }
