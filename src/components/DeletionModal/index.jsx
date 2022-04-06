@@ -22,15 +22,23 @@ function DeletionModal(props) {
   return (
     <>
       {visible && (
-        <ClayModal observer={observer} size="md" status="warning" center>
+        <ClayModal
+          className={styles.modalContainerDark}
+          observer={observer}
+          size="md"
+          status="warning"
+          center
+        >
           <ClayModal.Header>Delete repository</ClayModal.Header>
-          <ClayModal.Body className={isDarkTheme ? styles.modalDark : null}>
+          <ClayModal.Body
+            className={isDarkTheme ? styles.modalContentDark : null}
+          >
             <p className={styles.confirmMsg}>
               Are you sure to delete the <span>{title}</span> repository?
             </p>
           </ClayModal.Body>
           <ClayModal.Footer
-            className={isDarkTheme ? styles.modalDark : null}
+            className={isDarkTheme ? styles.modalContentDark : null}
             last={
               <ClayButton.Group spaced>
                 <ClayButton

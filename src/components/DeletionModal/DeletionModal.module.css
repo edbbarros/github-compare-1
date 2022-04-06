@@ -8,10 +8,14 @@
 }
 
 /* Dark Theme */
-.modalDark {
-  background-color: #6b6c7e;
+.modalContainerDark div div  {
+  border-radius: 0%;
+}
+
+.modalContentDark {
+  background-color: #393a4a;
   color: #fff;
-  border: none;
+  border-color: #495057;
 }
 
 .cancelButtomDark {
@@ -22,7 +26,7 @@
 
 .cancelButtomDark:hover {
   background-color: #495057;
-  background-color: #393a4a;
+  background-color: #6b6c7e;
   color: #fff;
   border: none;
 }
