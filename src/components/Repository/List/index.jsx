@@ -31,6 +31,7 @@ function List(props) {
 
   return (
     <ClayCard key={id} className={isDarkTheme ? styles.listDark : null}>
+      {/* repository header */}
       <div className={styles.listHeader}>
         <div className={styles.repositoryInfo}>
           <img src={avatar} alt="Avatar" />
@@ -58,6 +59,7 @@ function List(props) {
         </div>
       </div>
 
+      {/* repository body */}
       <div className={styles.listBody}>
         <p>
           Stars <span>{stars}</span>
@@ -78,6 +80,8 @@ function List(props) {
           License <span>{license?.name || 'N/A'}</span>
         </p>
       </div>
+
+      {/* language label */}
       <ClayLabel key={id} className={styles.label} displayType="warning" large>
         {language}
       </ClayLabel>

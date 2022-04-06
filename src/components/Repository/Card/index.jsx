@@ -31,6 +31,7 @@ function Card(props) {
 
   return (
     <ClayCard key={id} className={isDarkTheme ? styles.cardDark : styles.card}>
+      {/* repository header */}
       <div className={styles.cardHeader}>
         <div className={styles.repositoryInfo}>
           <img src={avatar} alt="Avatar" />
@@ -58,6 +59,7 @@ function Card(props) {
         </div>
       </div>
 
+      {/* repository body */}
       <div className={styles.cardBody}>
         <p>
           Stars <span>{stars}</span>
@@ -77,6 +79,8 @@ function Card(props) {
         <p>
           License <span>{license?.name || 'N/A'}</span>
         </p>
+
+        {/* language label */}
         <ClayLabel
           key={id}
           className={styles.label}

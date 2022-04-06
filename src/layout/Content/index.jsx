@@ -17,6 +17,7 @@ function Content() {
     favoritesResults,
   } = useContext(RepositoryContext);
 
+  // choosing the data to be displayed according to the filter operation type
   let data = [];
   switch (filterOperationType) {
     case 'search':
@@ -29,6 +30,7 @@ function Content() {
       data = repositories;
   }
 
+  // in case there are no repositories display an empty state component
   if (!data.length) {
     return (
       <div
@@ -53,6 +55,7 @@ function Content() {
         isDarkTheme ? styles.contentContainerDark : styles.contentContainer
       }
     >
+      {/* choosing between cards and lists view according to the view selected by the user */}
       {repositoriesView === 'cards' ? (
         <div className={styles.cardContainer}>
           {data.map(el => (

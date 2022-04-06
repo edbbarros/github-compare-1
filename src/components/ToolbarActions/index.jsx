@@ -38,6 +38,7 @@ function ToolbarActions() {
 
   return (
     <ClayManagementToolbar.ItemList>
+      {/* show favorites button */}
       <ClayManagementToolbar.Item className={styles.favorites}>
         <ClayButton
           className="nav-link nav-link-monospaced"
@@ -59,6 +60,7 @@ function ToolbarActions() {
         </ClayButton>
       </ClayManagementToolbar.Item>
 
+      {/* show dark theme button */}
       <ClayManagementToolbar.Item>
         <ClayButton
           className="nav-link nav-link-monospaced"
@@ -71,6 +73,7 @@ function ToolbarActions() {
         </ClayButton>
       </ClayManagementToolbar.Item>
 
+      {/* choose view button */}
       <ClayManagementToolbar.Item className={styles.displayType}>
         <ClayDropDownWithItems
           items={viewTypes}
@@ -88,6 +91,7 @@ function ToolbarActions() {
         />
       </ClayManagementToolbar.Item>
 
+      {/* add new repository button */}
       <NewRepository />
     </ClayManagementToolbar.ItemList>
   );
