@@ -3,10 +3,10 @@ import ClayButton, { ClayButtonWithIcon } from '@clayui/button';
 import ClayDropDown from '@clayui/drop-down';
 import ClayForm, { ClayInput } from '@clayui/form';
 import ClayAlert from '@clayui/alert';
-import { RepositoryContext } from '../../contexts/RepositoryContext';
-import styles from './NewRepository.module.css';
+import { RepositoryContext } from '../../../contexts/RepositoryContext';
+import styles from '../ToolbarActions.module.css';
 
-function NewRepository() {
+function NewRepositoryButtom() {
   const { addRepository, errorMsg, setErrorMsg, setFilterOperationType } =
     useContext(RepositoryContext);
 
@@ -74,4 +74,4 @@ function NewRepository() {
   );
 }
 
-export default NewRepository;
+export default NewRepositoryButtom;
