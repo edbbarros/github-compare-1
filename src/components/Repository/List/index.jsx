@@ -4,10 +4,10 @@ import ClayCard from '@clayui/card';
 import ClayLabel from '@clayui/label';
 import ClayIcon from '@clayui/icon';
 import DeletionModal from '../../DeletionModal';
-import styles from './List.module.css';
 import { RepositoryContext } from '../../../contexts/RepositoryContext';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import { formatTime } from '../../../utils';
+import styles from './List.module.css';
 
 function List(props) {
   const {
