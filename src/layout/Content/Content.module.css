@@ -1,13 +1,16 @@
 .contentContainer {
   background-color: #F7F8F9;
   min-height: calc(100vh - 4rem);
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
-  max-width: 1144px;
+  max-width: 1023px;
+  gap: 30px;
 }
 
 .listContainer {
