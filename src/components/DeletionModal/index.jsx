@@ -3,13 +3,11 @@ import ClayButton from '@clayui/button';
 import ClayIcon from '@clayui/icon';
 import ClayModal, { useModal } from '@clayui/modal';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
-import { ThemeContext } from '../../contexts/ThemeContext';
 import styles from './DeletionModal.module.css';
 
 function DeletionModal(props) {
   const { id, title } = props;
 
-  const { isDarkTheme } = useContext(ThemeContext);
   const { deleteRepository } = useContext(RepositoryContext);
 
   const [visible, setVisible] = useState(false);
@@ -22,30 +20,17 @@ function DeletionModal(props) {
   return (
     <>
       {visible && (
-        <ClayModal
-          className={styles.modalContainerDark}
-          observer={observer}
-          size="md"
-          status="warning"
-          center
-        >
+        <ClayModal observer={observer} size="md" status="warning" center>
           <ClayModal.Header>Delete repository</ClayModal.Header>
-          <ClayModal.Body
-            className={isDarkTheme ? styles.modalContentDark : null}
-          >
+          <ClayModal.Body>
             <p className={styles.confirmMsg}>
               Are you sure to delete the <span>{title}</span> repository?
             </p>
           </ClayModal.Body>
           <ClayModal.Footer
-            className={isDarkTheme ? styles.modalContentDark : null}
             last={
               <ClayButton.Group spaced>
-                <ClayButton
-                  className={isDarkTheme ? styles.cancelButtomDark : null}
-                  displayType="secondary"
-                  onClick={onClose}
-                >
+                <ClayButton displayType="secondary" onClick={onClose}>
                   Cancel
                 </ClayButton>
 
