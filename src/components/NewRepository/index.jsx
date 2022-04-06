@@ -7,7 +7,7 @@ import { RepositoryContext } from '../../contexts/RepositoryContext';
 import styles from './NewRepository.module.css';
 
 function NewRepository() {
-  const { addRepository, errorMsg, setErrorMsg } =
+  const { addRepository, errorMsg, setErrorMsg, setFilterOperationType } =
     useContext(RepositoryContext);
 
   const [repository, setRepository] = useState('');
@@ -55,6 +55,7 @@ function NewRepository() {
         <ClayButton
           onClick={() => {
             addRepository(repository);
+            setFilterOperationType('');
           }}
           disabled={errorMsg}
         >
