@@ -52,9 +52,9 @@ function ToolbarActions() {
           }}
         >
           {filterOperationType === 'favorites' ? (
-            <ClayIcon symbol="star" />
+            <ClayIcon color={isDarkTheme ? '#FFF' : null} symbol="star" />
           ) : (
-            <ClayIcon symbol="star-o" />
+            <ClayIcon color={isDarkTheme ? '#FFF' : null} symbol="star-o" />
           )}
         </ClayButton>
       </ClayManagementToolbar.Item>
@@ -67,7 +67,7 @@ function ToolbarActions() {
             setIsDarkTheme(!isDarkTheme);
           }}
         >
-          <ClayIcon symbol="adjust" />
+          <ClayIcon color={isDarkTheme ? '#FFF' : null} symbol="adjust" />
         </ClayButton>
       </ClayManagementToolbar.Item>
 
@@ -80,6 +80,7 @@ function ToolbarActions() {
               displayType="unstyled"
             >
               <ClayIcon
+                color={isDarkTheme ? '#FFF' : null}
                 symbol={viewTypeActive ? viewTypeActive.symbolLeft : ''}
               />
             </ClayButton>
