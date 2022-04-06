@@ -48,7 +48,7 @@ function Content() {
   }
 
   return (
-    <div
+    <main
       className={
         isDarkTheme ? styles.contentContainerDark : styles.contentContainer
       }
@@ -92,7 +92,7 @@ function Content() {
           ))}
         </div>
       )}
-    </div>
+    </main>
   );
 }
 
