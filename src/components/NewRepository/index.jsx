@@ -34,6 +34,7 @@ function NewRepository() {
           <ClayInput
             id="basicInputText"
             type="text"
+            value={repository}
             onChange={e => {
               setRepository(e.target.value);
               setErrorMsg(null);
@@ -49,13 +50,20 @@ function NewRepository() {
         </ClayForm.Group>
       </div>
       <div className={styles.newRepositoryHeaderActions}>
-        <ClayButton displayType="secondary" onClick={() => setOpen(false)}>
+        <ClayButton
+          displayType="secondary"
+          onClick={() => {
+            setOpen(false);
+            setRepository('');
+          }}
+        >
           Cancel
         </ClayButton>
         <ClayButton
           onClick={() => {
             addRepository(repository);
             setFilterOperationType('');
+            setRepository('');
           }}
           disabled={errorMsg}
         >
