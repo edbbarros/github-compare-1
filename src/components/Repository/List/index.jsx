@@ -6,6 +6,7 @@ import ClayIcon from '@clayui/icon';
 import DeletionModal from '../../DeletionModal';
 import styles from './List.module.css';
 import { RepositoryContext } from '../../../contexts/RepositoryContext';
+import { ThemeContext } from '../../../contexts/ThemeContext';
 import { formatTime } from '../../../utils';
 
 function List(props) {
@@ -23,11 +24,13 @@ function List(props) {
     isFavorite,
   } = props;
 
+  const { isDarkTheme } = useContext(ThemeContext);
+
   const { addRepositoryToFavorites, removeRepositoryFromFavorites } =
     useContext(RepositoryContext);
 
   return (
-    <ClayCard key={id}>
+    <ClayCard key={id} className={isDarkTheme ? styles.listDark : null}>
       <div className={styles.listHeader}>
         <div className={styles.repositoryInfo}>
           <img src={avatar} alt="Avatar" />

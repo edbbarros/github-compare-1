@@ -26,3 +26,32 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Dark Theme */
+.emptyStateContainerDark {
+  background-color: #111;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentContainerDark {
+  background-color: #111;
+  min-height: calc(100vh - 4rem);
+  padding-top: 30px;
+}
+
+.emptyStateContainerDark div {
+  color: #fff;
+}
+.emptyStateContainerDark button {
+  color: #fff;
+  background-color: #6b6c7e;
+  border: none;
+}
+
+.emptyStateContainerDark button:hover {
+  color: #fff;
+  background-color: #495057;
+}

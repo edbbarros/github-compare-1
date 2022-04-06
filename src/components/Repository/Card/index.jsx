@@ -6,6 +6,7 @@ import ClayIcon from '@clayui/icon';
 import DeletionModal from '../../DeletionModal';
 import styles from './Card.module.css';
 import { RepositoryContext } from '../../../contexts/RepositoryContext';
+import { ThemeContext } from '../../../contexts/ThemeContext';
 import { formatTime } from '../../../utils';
 
 function Card(props) {
@@ -23,11 +24,13 @@ function Card(props) {
     isFavorite,
   } = props;
 
+  const { isDarkTheme } = useContext(ThemeContext);
+
   const { addRepositoryToFavorites, removeRepositoryFromFavorites } =
     useContext(RepositoryContext);
 
   return (
-    <ClayCard key={id} className={styles.card}>
+    <ClayCard key={id} className={isDarkTheme ? styles.cardDark : styles.card}>
       <div className={styles.cardHeader}>
         <div className={styles.repositoryInfo}>
           <img src={avatar} alt="Avatar" />

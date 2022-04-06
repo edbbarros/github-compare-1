@@ -60,3 +60,18 @@
   padding: 1px 4px;
   margin-top: 8px;
 }
+
+/* Dark Theme */
+.cardDark {
+  flex: 0 1 321px;
+  background-color: #393a4a;
+  color: #fff;
+}
+
+.cardDark button {
+  color: #fff;
+}
+
+.cardDark button:hover {
+  color: #ddd;
+}

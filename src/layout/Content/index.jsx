@@ -4,8 +4,11 @@ import Card from '../../components/Repository/Card';
 import List from '../../components/Repository/List';
 import styles from './Content.module.css';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 function Content() {
+  const { isDarkTheme } = useContext(ThemeContext);
+
   const {
     repositories,
     repositoriesView,
@@ -28,7 +31,13 @@ function Content() {
 
   if (!data.length) {
     return (
-      <div className={styles.emptyStateContainer}>
+      <div
+        className={
+          isDarkTheme
+            ? styles.emptyStateContainerDark
+            : styles.emptyStateContainer
+        }
+      >
         {filterOperationType === 'search' ? (
           <EmptyState isSearch />
         ) : (
@@ -39,7 +48,11 @@ function Content() {
   }
 
   return (
-    <div className={styles.contentContainer}>
+    <div
+      className={
+        isDarkTheme ? styles.contentContainerDark : styles.contentContainer
+      }
+    >
       {repositoriesView === 'cards' ? (
         <div className={styles.cardContainer}>
           {data.map(el => (

@@ -5,9 +5,12 @@ import ClayButton from '@clayui/button';
 import { ClayDropDownWithItems } from '@clayui/drop-down';
 import NewRepository from '../NewRepository';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
 import styles from './ToolbarActions.module.css';
 
 function ToolbarActions() {
+  const { isDarkTheme, setIsDarkTheme } = useContext(ThemeContext);
+
   const {
     repositoriesView,
     setRepositoriesView,
@@ -60,7 +63,9 @@ function ToolbarActions() {
         <ClayButton
           className="nav-link nav-link-monospaced"
           displayType="unstyled"
-          onClick={() => {}}
+          onClick={() => {
+            setIsDarkTheme(!isDarkTheme);
+          }}
         >
           <ClayIcon symbol="adjust" />
         </ClayButton>
