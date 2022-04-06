@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import EmptyState from '../../components/EmptyState';
 import Card from '../../components/Repository/Card';
 import List from '../../components/Repository/List';
-import styles from './Content.module.css';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import styles from './Content.module.css';
 
 function Content() {
   const { isDarkTheme } = useContext(ThemeContext);
