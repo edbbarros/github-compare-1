@@ -3,9 +3,11 @@ import ClayIcon from '@clayui/icon';
 import ClayButton from '@clayui/button';
 import ClayDropDown from '@clayui/drop-down';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
 import styles from './Filter.module.css';
 
 function Filter() {
+  const { isDarkTheme } = useContext(ThemeContext);
   const { sortRepositories } = useContext(RepositoryContext);
 
   const [active, setActive] = useState(false);
@@ -20,7 +22,7 @@ function Filter() {
 
   return (
     <ClayDropDown
-      className={styles.dropdown}
+      className={isDarkTheme ? styles.dropdownDark : styles.dropdown}
       trigger={
         <ClayButton className="nav-link" displayType="unstyled">
           <span className="navbar-breakpoint-down-d-none">

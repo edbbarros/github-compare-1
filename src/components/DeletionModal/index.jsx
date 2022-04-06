@@ -2,8 +2,8 @@ import { useState, useContext } from 'react';
 import ClayButton from '@clayui/button';
 import ClayIcon from '@clayui/icon';
 import ClayModal, { useModal } from '@clayui/modal';
-import styles from './DeletionModal.module.css';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
+import styles from './DeletionModal.module.css';
 
 function DeletionModal(props) {
   const { id, title } = props;

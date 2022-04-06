@@ -53,3 +53,17 @@
   font-weight: 600;
   padding: 1px 4px;
 }
+
+/* Dark Theme */
+.listDark {
+  background-color: #393A4A;
+  color: #FFF;
+}
+
+.listDark button, .listDark div, .listDark p {
+  color: #FFF;
+}
+
+.listDark button:hover {
+  color: #DDD;
+}
