@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import EmptyState from '../../components/EmptyState';
-import Card from '../../components/Repository/Card';
-import List from '../../components/Repository/List';
+import Repository from '../../components/Repository';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import styles from './Content.module.css';
@@ -55,46 +54,31 @@ function Content() {
         isDarkTheme ? styles.contentContainerDark : styles.contentContainer
       }
     >
-      {/* choosing between cards and lists view according to the view selected by the user */}
-      {repositoriesView === 'cards' ? (
-        <div className={styles.cardContainer}>
-          {data.map(el => (
-            <Card
-              key={el.id}
-              id={el.id}
-              title={el.title}
-              avatar={el.avatar}
-              stars={el.stars}
-              forks={el.forks}
-              openIssues={el.openIssues}
-              age={el.age}
-              lastCommit={el.lastCommit}
-              license={el.license}
-              language={el.language}
-              isFavorite={el.isFavorite}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className={styles.listContainer}>
-          {data.map(el => (
-            <List
-              key={el.id}
-              id={el.id}
-              title={el.title}
-              avatar={el.avatar}
-              stars={el.stars}
-              forks={el.forks}
-              openIssues={el.openIssues}
-              age={el.age}
-              lastCommit={el.lastCommit}
-              license={el.license}
-              language={el.language}
-              isFavorite={el.isFavorite}
-            />
-          ))}
-        </div>
-      )}
+      <div
+        className={
+          repositoriesView === 'cards'
+            ? styles.cardContainer
+            : styles.listContainer
+        }
+      >
+        {data.map(el => (
+          <Repository
+            repositoriesView={repositoriesView}
+            key={el.id}
+            id={el.id}
+            title={el.title}
+            avatar={el.avatar}
+            stars={el.stars}
+            forks={el.forks}
+            openIssues={el.openIssues}
+            age={el.age}
+            lastCommit={el.lastCommit}
+            license={el.license}
+            language={el.language}
+            isFavorite={el.isFavorite}
+          />
+        ))}
+      </div>
     </main>
   );
 }

@@ -3,14 +3,15 @@ import ClayButton from '@clayui/button';
 import ClayCard from '@clayui/card';
 import ClayLabel from '@clayui/label';
 import ClayIcon from '@clayui/icon';
-import DeletionModal from '../../DeletionModal';
-import { RepositoryContext } from '../../../contexts/RepositoryContext';
-import { ThemeContext } from '../../../contexts/ThemeContext';
-import { formatTime } from '../../../utils';
-import styles from './Card.module.css';
+import DeletionModal from '../DeletionModal';
+import { RepositoryContext } from '../../contexts/RepositoryContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
+import { formatTime } from '../../utils';
+import styles from './Repository.module.css';
 
-function Card(props) {
+function Repository(props) {
   const {
+    repositoriesView,
     id,
     title,
     avatar,
@@ -28,16 +29,42 @@ function Card(props) {
 
   const { addRepositoryToFavorites, removeRepositoryFromFavorites } =
     useContext(RepositoryContext);
-
   return (
-    <ClayCard key={id} className={isDarkTheme ? styles.cardDark : styles.card}>
+    <ClayCard
+      key={id}
+      className={
+        repositoriesView === 'cards'
+          ? isDarkTheme
+            ? styles.cardDark
+            : styles.card
+          : isDarkTheme
+          ? styles.listDark
+          : null
+      }
+    >
       {/* repository header */}
-      <div className={styles.cardHeader}>
-        <div className={styles.repositoryInfo}>
+      <div
+        className={
+          repositoriesView === 'cards' ? styles.cardHeader : styles.listHeader
+        }
+      >
+        <div
+          className={
+            repositoriesView === 'cards'
+              ? styles.cardRepositoryInfo
+              : styles.listRepositoryInfo
+          }
+        >
           <img src={avatar} alt="Avatar" />
           {title}
         </div>
-        <div className={styles.repositoryActions}>
+        <div
+          className={
+            repositoriesView === 'cards'
+              ? styles.cardRepositoryActions
+              : styles.listRepositoryActions
+          }
+        >
           <ClayButton
             displayType="secondary"
             borderless
@@ -60,7 +87,11 @@ function Card(props) {
       </div>
 
       {/* repository body */}
-      <div className={styles.cardBody}>
+      <div
+        className={
+          repositoriesView === 'cards' ? styles.cardBody : styles.listBody
+        }
+      >
         <p>
           Stars <span>{stars}</span>
         </p>
@@ -79,19 +110,21 @@ function Card(props) {
         <p>
           License <span>{license?.name || 'N/A'}</span>
         </p>
-
-        {/* language label */}
-        <ClayLabel
-          key={id}
-          className={styles.label}
-          displayType="warning"
-          large
-        >
-          {language}
-        </ClayLabel>
       </div>
+
+      {/* language label) */}
+      <ClayLabel
+        key={id}
+        className={
+          repositoriesView === 'cards' ? styles.cardLabel : styles.listLabel
+        }
+        displayType="warning"
+        large
+      >
+        {language}
+      </ClayLabel>
     </ClayCard>
   );
 }
 
-export default Card;
+export default Repository;
