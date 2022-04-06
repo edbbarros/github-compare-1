@@ -56,3 +56,24 @@
   color: #FFF;
   background-color: #495057;
 }
+
+/* Resposive */
+@media (max-width: 1022px) {
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 672px;
+    margin: auto;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 671px) {
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 320px;
+    margin: auto;
+    gap: 30px;
+  }
+}

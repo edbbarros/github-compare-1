@@ -9,6 +9,9 @@
   font-size: 14px;
   font-weight: 600;
   color: #272833;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .repositoryInfo img {
@@ -30,7 +33,6 @@
 
 .listBody {
   display: flex;
-  flex-direction: row;
   margin-left: 60px;
 }
 
@@ -67,4 +69,13 @@
 
 .listDark button:hover {
   color: #DDD;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .listBody {
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+  }
 }
