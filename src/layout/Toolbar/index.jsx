@@ -7,7 +7,7 @@ import styles from './Toolbar.module.css';
 
 function Toolbar() {
   return (
-    <ClayManagementToolbar>
+    <ClayManagementToolbar className={styles.toolbar}>
       <img className={styles.logo} src={githubLogo} alt="GitHub Logo" />
       Github Compare
       <Filter />
