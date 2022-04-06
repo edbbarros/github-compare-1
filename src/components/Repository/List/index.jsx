@@ -27,13 +27,13 @@ function List(props) {
     useContext(RepositoryContext);
 
   return (
-    <ClayCard key={id} className={styles.listContainer}>
+    <ClayCard key={id}>
       <div className={styles.listHeader}>
-        <div className={styles.repoInfo}>
+        <div className={styles.repositoryInfo}>
           <img src={avatar} alt="Avatar" />
           {title}
         </div>
-        <div className={styles.options}>
+        <div className={styles.repositoryActions}>
           <ClayButton
             displayType="secondary"
             borderless
