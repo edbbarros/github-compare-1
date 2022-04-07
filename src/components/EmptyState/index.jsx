@@ -5,10 +5,10 @@ import emptyState from '../../assets/empty-state.svg';
 import { RepositoryContext } from '../../contexts/RepositoryContext';
 
 function EmptyState(props) {
+  const { isSearch } = props;
+
   const { setFilterOperationType, setSearchString } =
     useContext(RepositoryContext);
-
-  const { isSearch } = props;
 
   return (
     <ClayEmptyState

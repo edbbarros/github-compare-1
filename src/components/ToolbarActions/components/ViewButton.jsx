@@ -9,7 +9,6 @@ import styles from '../ToolbarActions.module.css';
 
 function ToolbarActions() {
   const { isDarkTheme } = useContext(ThemeContext);
-
   const { repositoriesView, setRepositoriesView } =
     useContext(RepositoryContext);
 
