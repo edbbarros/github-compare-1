@@ -32,7 +32,7 @@ function Content() {
   // in case there are no repositories display an empty state component
   if (!data.length) {
     return (
-      <div
+      <main
         className={
           isDarkTheme
             ? styles.emptyStateContainerDark
@@ -44,7 +44,7 @@ function Content() {
         ) : (
           <EmptyState />
         )}
-      </div>
+      </main>
     );
   }
 
