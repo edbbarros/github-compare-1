@@ -1,0 +1,37 @@
+.favorites {
+  margin-left: 18px;
+}
+
+.displayType {
+  margin-right: 24px;
+}
+
+.newRepositoryHeader {
+  font-size: 18px;
+  padding: 15px;
+  border-bottom: 1px solid #E7E7ED;
+  font-weight: 600;
+}
+
+.newRepositoryForm {
+  margin-top: 10px;
+}
+
+.newRepositoryForm label {
+  font-size: 14px;
+}
+
+.required {
+  color: #B95000;
+}
+
+.newRepositoryHeaderActions {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 16px;
+}
+
+.newRepositoryHeaderActions button {
+  margin-right: 16px;
+}

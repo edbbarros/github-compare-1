@@ -1,0 +1,19 @@
+.toolbar {
+  font-weight: 600;
+  color: #6B6C7E;
+}
+
+.logo {
+  margin-right: 28px;
+}
+
+/* Dark Theme */
+.toolbarDark {
+  font-weight: 600;
+  color: #FFF;
+  background-color: #393A4A;
+}
+
+.toolbarDark div {
+  background-color: #393A4A !important;
+}
