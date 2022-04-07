@@ -4,6 +4,10 @@ GitHub Compare é um web app que funciona como um comparador de repositórios do
 
 A aplicação utiliza a [API do GitHub](https://docs.github.com/en/rest) para buscar as informações sobre os repositórios.
 
+## Demo :computer:
+
+O app pode ser testado pelo link: [https://github-compare-demo.herokuapp.com/](https://github-compare-demo.herokuapp.com/)
+
 ## Instalação :hammer_and_wrench:
 
 Você pode utilizar essa aplicação baixando ou clonando esse repositório, depois disso, deve navegar até a pasta do projeto e executar um dos comandos abaixo, de acordo com seu gerenciador de pacotes preferido, para instalar as dependências.
