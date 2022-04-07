@@ -7,7 +7,6 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 
 function MobileSearchButton() {
   const { isDarkTheme } = useContext(ThemeContext);
-
   const { setSearchMobile } = useContext(RepositoryContext);
 
   return (

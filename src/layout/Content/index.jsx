@@ -7,7 +7,6 @@ import styles from './Content.module.css';
 
 function Content() {
   const { isDarkTheme } = useContext(ThemeContext);
-
   const {
     repositories,
     repositoriesView,

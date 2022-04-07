@@ -8,7 +8,6 @@ import styles from '../ToolbarActions.module.css';
 
 function ToolbarActions() {
   const { isDarkTheme } = useContext(ThemeContext);
-
   const {
     filterFavoriteRepositories,
     filterOperationType,
